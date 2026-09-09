@@ -30,17 +30,17 @@ const Dashboard=async ()=>{
         </div>
 
         {/* Pending Review */}
-        <div className="bg-slate-800 border border-slate-700 p-6 rounded-lg flex items-center justify-between">
+        <div className="bg-slate-800 border-2 border-red-700 p-6 rounded-lg flex items-center justify-between">
           <div>
-            <p className="text-red-500 text-sm font-medium mb-1">Pending Review</p>
-            <p className="text-3xl font-bold text-red-500">12</p>
+            <p className="text-sm  font-medium mb-1">Pending Review</p>
+            <p className="text-3xl font-bold">12</p>
           </div>
         </div>
 
         {/* Confidence Score */}
         <div className="bg-slate-800 border border-slate-700 p-6 rounded-lg flex items-center justify-between">
           <div>
-            <p className="text-slate-400 text-sm font-medium mb-1">Avg Confidence</p>
+            <p className="text-slate-100 text-sm font-medium mb-1"><strong>Avg Confidence</strong></p>
             <p className="text-3xl font-bold text-emerald-400">92.4%</p>
           </div>
         </div>
@@ -70,8 +70,8 @@ const Dashboard=async ()=>{
                 <td className="px-6 py-4 text-slate-300">{batch.progress}</td>
                 <td className="px-6 py-4">
                   <span className={`
-                    ${batch.status === 'Action Needed' ? 'text-red-400' : ''}
-                    ${batch.status === 'Completed' ? 'text-emerald-400' : ''}
+                    ${batch.status === 'Action Needed' ? 'text-red-400 font-bold' : ''}
+                    ${batch.status === 'Completed' ? 'text-emerald-400 font-bold' : ''}
                     ${batch.status === 'Processing' ? 'text-cyan-400' : ''}
                   `}>
                     {batch.status}
