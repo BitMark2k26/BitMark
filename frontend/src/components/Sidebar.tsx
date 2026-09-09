@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { UserButton, useUser } from "@clerk/nextjs";
 import {
   LayoutDashboard,
-  UploadCloud,
-  ListChecks,
+  Upload,
+  List,
   FileText,
   History,
   LucideIcon
@@ -26,8 +26,8 @@ export function Sidebar() {
 
   const navItems: NavItem[] = [
     { name: "Dashboard", href: "/", icon: LayoutDashboard },
-    { name: "Upload Batch", href: "/upload", icon: UploadCloud },
-    { name: "Review Queue", href: "/review", icon: ListChecks },
+    { name: "Upload Batch", href: "/upload", icon: Upload },
+    { name: "Review Queue", href: "/review", icon: List },
     { name: "Marking Scheme", href: "/scheme", icon: FileText },
     { name: "History", href: "/history", icon: History },
   ];

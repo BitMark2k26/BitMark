@@ -27,16 +27,14 @@ const Dashboard=async ()=>{
             <p className="text-slate-400 text-sm font-medium mb-1">Total Processed</p>
             <p className="text-3xl font-bold">1,248</p>
           </div>
-          <Files className="h-8 w-8 text-slate-500 opacity-50" />
         </div>
 
         {/* Pending Review */}
-        <div className="bg-slate-800 border border-amber-500/50 p-6 rounded-lg flex items-center justify-between">
+        <div className="bg-slate-800 border border-slate-700 p-6 rounded-lg flex items-center justify-between">
           <div>
-            <p className="text-amber-400 text-sm font-medium mb-1">Pending Review</p>
-            <p className="text-3xl font-bold text-amber-500">12</p>
+            <p className="text-red-500 text-sm font-medium mb-1">Pending Review</p>
+            <p className="text-3xl font-bold text-red-500">12</p>
           </div>
-          <AlertTriangle className="h-8 w-8 text-amber-500 opacity-50" />
         </div>
 
         {/* Confidence Score */}
@@ -45,7 +43,6 @@ const Dashboard=async ()=>{
             <p className="text-slate-400 text-sm font-medium mb-1">Avg Confidence</p>
             <p className="text-3xl font-bold text-emerald-400">92.4%</p>
           </div>
-          <BrainCircuit className="h-8 w-8 text-slate-500 opacity-50" />
         </div>
 
       </div>
@@ -73,7 +70,7 @@ const Dashboard=async ()=>{
                 <td className="px-6 py-4 text-slate-300">{batch.progress}</td>
                 <td className="px-6 py-4">
                   <span className={`
-                    ${batch.status === 'Action Needed' ? 'text-amber-400' : ''}
+                    ${batch.status === 'Action Needed' ? 'text-red-400' : ''}
                     ${batch.status === 'Completed' ? 'text-emerald-400' : ''}
                     ${batch.status === 'Processing' ? 'text-cyan-400' : ''}
                   `}>

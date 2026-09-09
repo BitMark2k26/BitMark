@@ -8,7 +8,6 @@ const DashboardPage = async () => {
   return (
     <div className="flex min-h-screen bg-zinc-50 font-sans dark:bg-black">
       <Sidebar />
-      
       <main className="flex flex-col flex-1 items-center justify-center w-full">
         <Dashboard />
       </main>
