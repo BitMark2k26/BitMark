@@ -19,7 +19,7 @@
 
 # production
 /build
-
+.clerk/
 # misc
 .DS_Store
 *.pem
