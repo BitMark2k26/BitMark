@@ -2,7 +2,7 @@ import asyncio
 import io
 import mimetypes
 from dataclasses import dataclass
-import fitz  # PyMuPDF
+import pymupdf as fitz
 from PIL import Image
 from pdf2image import convert_from_bytes
 import pytesseract

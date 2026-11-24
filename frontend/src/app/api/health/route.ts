@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
+  const url = `${process.env.FASTAPI_URL}/api/health`;
   try {
-    const res = await fetch(`${process.env.BACKEND_URL}/health`, {
+    const res = await fetch(url, {
       cache: "no-store",
       signal: AbortSignal.timeout(5000),
     });
@@ -12,7 +13,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ status: "ok" }, { status: 200 });
-  } catch {
+  } catch (err) {
     return NextResponse.json({ status: "waking" }, { status: 503 });
   }
 }

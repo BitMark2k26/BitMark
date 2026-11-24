@@ -166,3 +166,6 @@ async def delete_job(job_id: str):
 )
 async def update_student_evaluation(job_id: str, evaluation: PaperEvaluation):
     return await evaluationService.override_evaluation(job_id, evaluation)
+@router.get("/health")
+def health():
+    return {"status": "ok"}
