@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     GROQ_API_KEY: str = os.getenv("GROQ_API_KEY")
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY")
     MONGODB_URL: str = os.getenv("MONGODB_URL")
-    DATABASE_NAME: str = "bitmark_db"
+    DATABASE_NAME: str = os.getenv("DB_NAME")
     INTERNAL_API_KEY:str=os.getenv("INTERNAL_API_KEY")
     model_config = SettingsConfigDict(
         env_file=ENV_PATH,

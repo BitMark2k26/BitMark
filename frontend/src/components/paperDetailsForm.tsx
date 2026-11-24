@@ -7,7 +7,7 @@ type PaperDetailsFormProps = {
 };
 
 const inputClassName =
-  "mt-2 w-full border border-slate-700 bg-slate-900 px-3 py-2.5 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 disabled:cursor-not-allowed disabled:opacity-50";
+  "mt-2 w-full border border-zinc-300 bg-zinc-50 px-3 py-2.5 text-sm text-zinc-900 outline-none placeholder:text-zinc-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100 dark:placeholder:text-zinc-500";
 
 export function PaperDetailsForm({
   paperId,
@@ -15,15 +15,15 @@ export function PaperDetailsForm({
   disabled = false,
 }: PaperDetailsFormProps) {
   return (
-    <div className="border border-slate-700 bg-slate-800 p-5 sm:p-7">
+    <div className="border border-zinc-200 bg-white p-5 text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 sm:p-7">
       <h2 className="text-lg font-semibold">Paper details</h2>
-      <p className="mt-1 text-sm text-slate-400">
+      <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
         Give this exam paper a unique ID so you can select it later when grading student copies.
       </p>
 
       <div className="mt-6">
         <label className="block text-sm font-medium">
-          Paper ID / Course code <span className="text-amber-400">*</span>
+          Paper ID / Course code <span className="text-amber-600 dark:text-amber-400">*</span>
           <input
             type="text"
             value={paperId}

@@ -77,37 +77,37 @@ export default function GenerateKeyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 px-5 py-8 text-slate-100 sm:px-8 lg:px-12">
+    <div className="min-h-screen bg-zinc-50 px-5 py-8 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
-        <header className="mb-8 border-b border-slate-700 pb-7">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-400">
+        <header className="mb-8 border-b border-zinc-200 pb-7 dark:border-zinc-800">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-600 dark:text-cyan-400">
             Answer key setup
           </p>
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Upload question paper
           </h1>
-          <p className="mt-2 max-w-xl text-sm leading-6 text-slate-400">
+          <p className="mt-2 max-w-xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
             Upload a blank exam paper to automatically generate an editable reference answer key.
           </p>
         </header>
 
         {error && (
-          <div className="mb-6 border border-red-800 bg-red-950/40 px-4 py-3 text-sm text-red-300">
+          <div className="mb-6 border border-rose-300 bg-rose-50 px-4 py-3 text-sm text-rose-700 dark:border-rose-500/30 dark:bg-rose-950/40 dark:text-rose-300">
             {error}
           </div>
         )}
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
           <section className="space-y-6">
-            <div className="border border-slate-700 bg-slate-800 p-5 sm:p-7">
+            <div className="border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900/80 sm:p-7">
               <div className="mb-5 flex items-start justify-between gap-4">
                 <div>
                   <h2 className="text-lg font-semibold">Question paper file</h2>
-                  <p className="mt-1 text-sm text-slate-400">
+                  <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
                     Single PDF or image scan up to 25 MB.
                   </p>
                 </div>
-                <span className="hidden rounded-full border border-slate-700 px-3 py-1 text-xs text-slate-400 sm:block">
+                <span className="hidden rounded-full border border-zinc-200 px-3 py-1 text-xs text-zinc-500 dark:border-zinc-800 dark:text-zinc-400 sm:block">
                   Required
                 </span>
               </div>

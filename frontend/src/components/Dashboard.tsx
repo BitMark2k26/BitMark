@@ -83,22 +83,22 @@ export default async function Dashboard() {
   });
 
   return (
-    <div className="mx-auto w-full max-w-6xl p-8 text-slate-100">
+    <div className="mx-auto w-full max-w-6xl p-8 text-zinc-900 dark:text-zinc-100">
       <header className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold">Dashboard</h1>
-          <p className="mt-1 text-slate-400">System overview and grading queue.</p>
+          <p className="mt-1 text-zinc-600 dark:text-zinc-400">System overview and grading queue.</p>
         </div>
         <div className="flex gap-3 text-sm font-semibold">
           <Link
             href="/generateKey"
-            className="border border-slate-700 bg-slate-800 px-4 py-2 text-slate-200 transition-colors hover:border-cyan-500"
+            className="border border-zinc-300 bg-white px-4 py-2 text-zinc-800 transition-colors hover:border-cyan-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-cyan-400"
           >
              New Answer Key
           </Link>
           <Link
             href="/upload"
-            className="bg-cyan-500 px-4 py-2 text-slate-950 transition-colors hover:bg-cyan-400"
+            className="bg-cyan-500 px-4 py-2 text-zinc-950 transition-colors hover:bg-cyan-400"
           >
             Upload Submissions
           </Link>
@@ -106,16 +106,16 @@ export default async function Dashboard() {
       </header>
 
       {backendOffline && (
-        <div className="mb-6 border border-red-800 bg-red-950/40 px-4 py-3 text-sm text-red-300">
+        <div className="mb-6 border border-rose-300 bg-rose-50 px-4 py-3 text-sm text-rose-700 dark:border-rose-500/30 dark:bg-rose-950/40 dark:text-rose-300">
           Could not reach the grading backend. Showing empty state.
         </div>
       )}
 
       <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-3">
         {/* Total Processed */}
-        <div className="flex items-center justify-between rounded-lg border border-slate-700 bg-slate-800 p-6">
+        <div className="flex items-center justify-between rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900/80">
           <div>
-            <p className="mb-1 text-sm font-medium text-slate-400">Total Processed</p>
+            <p className="mb-1 text-sm font-medium text-zinc-500 dark:text-zinc-400">Total Processed</p>
             <p className="text-3xl font-bold">{totalProcessed}</p>
           </div>
           
@@ -123,43 +123,45 @@ export default async function Dashboard() {
 
         {/* Pending Review */}
         <div
-          className={`flex items-center justify-between rounded-lg bg-slate-800 p-6 ${
-            pendingReview > 0 ? "border-2 border-red-700" : "border border-slate-700"
+          className={`flex items-center justify-between rounded-lg bg-white p-6 dark:bg-zinc-900/80 ${
+            pendingReview > 0
+              ? "border-2 border-rose-500 dark:border-rose-500/60"
+              : "border border-zinc-200 dark:border-zinc-800"
           }`}
         >
           <div>
-            <p className="mb-1 text-sm font-medium text-slate-300">Pending Review</p>
+            <p className="mb-1 text-sm font-medium text-zinc-700 dark:text-zinc-300">Pending Review</p>
             <p className="text-3xl font-bold">{pendingReview}</p>
           </div>
          
         </div>
 
         {/* Avg Confidence */}
-        <div className="flex items-center justify-between rounded-lg border border-slate-700 bg-slate-800 p-6">
+        <div className="flex items-center justify-between rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900/80">
           <div>
-            <p className="mb-1 text-sm font-medium text-slate-100">
+            <p className="mb-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
               <strong>Avg Confidence</strong>
             </p>
-            <p className="text-3xl font-bold text-emerald-400">{avgConfidence}</p>
+            <p className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">{avgConfidence}</p>
           </div>
           
         </div>
       </div>
 
       {/* Recent Batches Table */}
-      <div className="rounded-lg border border-slate-700 bg-slate-800">
-        <div className="border-b border-slate-700 px-6 py-4">
+      <div className="rounded-lg border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900/80">
+        <div className="border-b border-zinc-200 px-6 py-4 dark:border-zinc-800">
           <h2 className="text-lg font-semibold">Recent Batches</h2>
         </div>
 
         {activeBatches.length === 0 ? (
-          <p className="px-6 py-8 text-sm text-slate-400">
+          <p className="px-6 py-8 text-sm text-zinc-500 dark:text-zinc-400">
             No batches yet. Upload a question paper to generate your first answer key.
           </p>
         ) : (
           <table className="w-full text-left">
             <thead>
-              <tr className="border-b border-slate-700 text-sm text-slate-400">
+              <tr className="border-b border-zinc-200 text-sm text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
                 <th className="px-6 py-3 font-medium">Paper / Batch ID</th>
                 <th className="px-6 py-3 font-medium">Progress</th>
                 <th className="px-6 py-3 font-medium">Flagged</th>
@@ -167,24 +169,24 @@ export default async function Dashboard() {
                 <th className="px-6 py-3 text-right font-medium">Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-700/50 text-sm">
+            <tbody className="divide-y divide-zinc-200/70 text-sm dark:divide-zinc-800/70">
               {activeBatches.map((batch) => (
-                <tr key={batch.paperId} className="hover:bg-slate-700/30">
+                <tr key={batch.paperId} className="hover:bg-zinc-50 dark:hover:bg-zinc-800/40">
                   <td className="px-6 py-4 font-medium">{batch.paperId}</td>
-                  <td className="px-6 py-4 text-slate-300">
+                  <td className="px-6 py-4 text-zinc-700 dark:text-zinc-300">
                     {batch.completed}/{batch.total}
                   </td>
-                  <td className="px-6 py-4 text-slate-300">{batch.flagged}</td>
+                  <td className="px-6 py-4 text-zinc-700 dark:text-zinc-300">{batch.flagged}</td>
                   <td className="px-6 py-4">
                     <span
                       className={
                         batch.status === "Action Needed"
-                          ? "font-bold text-red-400"
+                          ? "font-bold text-rose-600 dark:text-rose-400"
                           : batch.status === "Completed"
-                          ? "font-bold text-emerald-400"
+                          ? "font-bold text-emerald-600 dark:text-emerald-400"
                           : batch.status === "Processing"
-                          ? "text-cyan-400"
-                          : "text-slate-400"
+                          ? "text-cyan-600 dark:text-cyan-400"
+                          : "text-zinc-500 dark:text-zinc-400"
                       }
                     >
                       {batch.status}
@@ -193,7 +195,7 @@ export default async function Dashboard() {
                   <td className="px-6 py-4 text-right">
                     <Link
                       href={`/review?paperId=${encodeURIComponent(batch.paperId)}`}
-                      className="text-xs font-semibold text-cyan-400 hover:text-cyan-300"
+                      className="text-xs font-semibold text-cyan-600 hover:text-cyan-500 dark:text-cyan-400 dark:hover:text-cyan-300"
                     >
                       Review →
                     </Link>

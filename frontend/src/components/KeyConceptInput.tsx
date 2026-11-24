@@ -25,20 +25,20 @@ export function KeyConceptsInput({ concepts, onChange }: KeyConceptsInputProps) 
 
   return (
     <div className="sm:col-span-2">
-      <span className="block text-sm font-medium">Key concepts</span>
+      <span className="block text-sm font-medium text-zinc-900 dark:text-zinc-100">Key concepts</span>
 
       {concepts.length > 0 && (
         <div className="mt-2 flex flex-wrap gap-2">
           {concepts.map((concept, index) => (
             <span
               key={index}
-              className="inline-flex items-center gap-1.5 border border-cyan-500/40 bg-cyan-500/10 px-2.5 py-1 text-xs text-cyan-300"
+              className="inline-flex items-center gap-1.5 border border-cyan-500/40 bg-cyan-500/10 px-2.5 py-1 text-xs text-cyan-700 dark:text-cyan-300"
             >
               {concept}
               <button
                 type="button"
                 onClick={() => removeConcept(index)}
-                className="text-cyan-400 hover:text-slate-100"
+                className="text-cyan-600 hover:text-zinc-900 dark:text-cyan-400 dark:hover:text-zinc-100"
               >
                 ×
               </button>
@@ -59,12 +59,12 @@ export function KeyConceptsInput({ concepts, onChange }: KeyConceptsInputProps) 
             }
           }}
           placeholder="Add concept and press Enter"
-          className="w-full border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
+          className="w-full border border-zinc-300 bg-zinc-50 px-3 py-2 text-sm text-zinc-900 outline-none placeholder:text-zinc-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100 dark:placeholder:text-zinc-500"
         />
         <button
           type="button"
           onClick={addConcept}
-          className="border border-slate-700 bg-slate-800 px-3.5 py-2 text-sm font-medium text-slate-200 hover:border-cyan-500 hover:text-cyan-400"
+          className="border border-zinc-300 bg-white px-3.5 py-2 text-sm font-medium text-zinc-800 hover:border-cyan-500 hover:text-cyan-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-cyan-400 dark:hover:text-cyan-400"
         >
           Add
         </button>

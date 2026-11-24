@@ -65,7 +65,7 @@ export function AnswerKeyWorkspace() {
 
   if (isLoading) {
     return (
-      <div className="border border-slate-700 bg-slate-800 p-5 text-sm text-slate-400 sm:p-7">
+      <div className="border border-zinc-200 bg-white p-5 text-sm text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-400 sm:p-7">
         Loading available answer keys...
       </div>
     );
@@ -73,7 +73,7 @@ export function AnswerKeyWorkspace() {
 
   if (error) {
     return (
-      <div className="border border-red-800 bg-slate-800 p-5 text-sm text-red-400 sm:p-7">
+      <div className="border border-rose-300 bg-rose-50 p-5 text-sm text-rose-700 dark:border-rose-500/30 dark:bg-zinc-900/80 dark:text-rose-400 sm:p-7">
         {error}
       </div>
     );

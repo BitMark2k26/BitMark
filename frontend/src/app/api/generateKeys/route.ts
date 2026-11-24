@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 
-const FASTAPI_URL = process.env.FASTAPI_URL || "http://localhost:8000";
+const FASTAPI_URL = process.env.FASTAPI_URL;
 const INTERNAL_API_KEY = process.env.INTERNAL_API_KEY || "";
 
 export async function POST(request: NextRequest) {
@@ -39,7 +39,6 @@ export async function POST(request: NextRequest) {
     try {
       data = JSON.parse(rawText);
     } catch {
-      console.error("FastAPI returned non-JSON:", response.status, rawText);
       return NextResponse.json(
         { error: rawText || "Backend returned a non-JSON error" },
         { status: response.status || 502 }
@@ -48,7 +47,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(data, { status: response.status });
   } catch (err) {
-    console.error("POST /api/generate-key failed:", err);
     return NextResponse.json(
       { error: err instanceof Error ? err.message : "Internal Server Error" },
       { status: 500 }

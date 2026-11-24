@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const FASTAPI_URL = process.env.FASTAPI_URL || "http://localhost:8000";
+const FASTAPI_URL = process.env.FASTAPI_URL;
 const INTERNAL_API_KEY = process.env.INTERNAL_API_KEY || "";
 
 export async function GET(
@@ -21,11 +21,6 @@ export async function GET(
     });
 
     const rawBody = await res.text();
-    console.log("[GET /api/answer-keys/[id]]", {
-      url,
-      status: res.status,
-      body: rawBody,
-    });
 
     if (!res.ok) {
       return new NextResponse(
@@ -47,7 +42,6 @@ export async function GET(
       },
     });
   } catch (err) {
-    console.error("[GET /api/answer-keys/[id]] fetch error:", { url, err });
     return NextResponse.json(
       { error: "Failed to reach backend service" },
       { status: 502 }
@@ -77,11 +71,6 @@ export async function PUT(
     });
 
     const rawBody = await res.text();
-    console.log("[PUT /api/answer-keys/[id]]", {
-      url,
-      status: res.status,
-      body: rawBody,
-    });
 
     if (!res.ok) {
       return new NextResponse(
@@ -104,7 +93,6 @@ export async function PUT(
       },
     });
   } catch (err) {
-    console.error("[PUT /api/answer-keys/[id]] fetch error:", { url, err });
     return NextResponse.json(
       { error: "Failed to reach backend service" },
       { status: 502 }

@@ -88,7 +88,6 @@ def _ocr_with_fallback(raw_image: Image.Image, enhance_scan: bool) -> tuple[str,
         text, confs = _ocr_page_with_confidence(rgb_image)
 
     avg_conf = (sum(confs) / len(confs)) if confs else 0.0
-    print(f"Tesseract OCR extracted {len(text.strip())} chars (conf={avg_conf:.2f})")
     return text, confs
 
 
@@ -119,7 +118,6 @@ def _extract_sync(
         # 1. Extract native selectable text first (for digital question papers)
         combined_native = _extract_native_pdf_text(file_bytes)
         if len(combined_native) >= 30:
-            print(f"NATIVE PDF TEXT extracted {len(combined_native)} chars")
             return OCRResult(text=combined_native, ocr_confidence=1.0)
 
         # 2. Scanned PDF -> render pages and run Gemini Vision / Tesseract OCR

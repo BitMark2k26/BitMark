@@ -18,16 +18,16 @@ export function UploadFilePicker({ onFilesSelected }: UploadFilePickerProps) {
   };
 
   return (
-    <div className="flex min-h-64 flex-col items-center justify-center border border-slate-600 bg-slate-900/40 px-6 text-center">
-      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400">
+    <div className="flex min-h-64 flex-col items-center justify-center border border-zinc-300 bg-zinc-50 px-6 text-center dark:border-zinc-700 dark:bg-zinc-950/60">
+      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
         <FilePlus className="h-7 w-7" />
       </div>
-      <p className="font-medium">Choose student submissions</p>
-      <p className="mt-2 max-w-sm text-sm text-slate-400">Select one or more files from your computer to add them to this batch.</p>
+      <p className="font-medium text-zinc-900 dark:text-zinc-100">Choose student submissions</p>
+      <p className="mt-2 max-w-sm text-sm text-zinc-600 dark:text-zinc-400">Select one or more files from your computer to add them to this batch.</p>
       <button
         type="button"
         onClick={() => inputRef.current?.click()}
-        className="mt-5 inline-flex items-center gap-2 bg-cyan-500 px-4 py-2.5 text-sm font-semibold text-slate-950 transition-colors hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-800"
+        className="mt-5 inline-flex items-center gap-2 bg-cyan-500 px-4 py-2.5 text-sm font-semibold text-zinc-950 transition-colors hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-zinc-900"
       >
         <Plus className="h-4 w-4" /> Browse files
       </button>

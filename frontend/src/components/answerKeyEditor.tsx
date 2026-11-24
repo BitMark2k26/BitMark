@@ -184,8 +184,8 @@ export function AnswerKeyEditor({
 
   if (isLoading) {
     return (
-      <div className="flex items-center gap-2 border border-slate-700 bg-slate-800 p-5 text-sm text-slate-400 sm:p-7">
-        <Loader2 className="h-4 w-4 animate-spin text-cyan-400" />
+      <div className="flex items-center gap-2 border border-zinc-200 bg-white p-5 text-sm text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-400 sm:p-7">
+        <Loader2 className="h-4 w-4 animate-spin text-cyan-600 dark:text-cyan-400" />
         Loading answer key...
       </div>
     );
@@ -193,7 +193,7 @@ export function AnswerKeyEditor({
 
   if (!answerKey) {
     return (
-      <div className="border border-red-800 bg-slate-800 p-5 text-sm text-red-400 sm:p-7">
+      <div className="border border-rose-300 bg-rose-50 p-5 text-sm text-rose-700 dark:border-rose-500/30 dark:bg-zinc-900/80 dark:text-rose-400 sm:p-7">
         {error || `Answer key not found for "${cleanPaperId}".`}
       </div>
     );
@@ -206,14 +206,14 @@ export function AnswerKeyEditor({
   const busy = isSaving || isDeleting;
 
   return (
-    <div className="border border-slate-700 bg-slate-800 p-5 sm:p-7">
+    <div className="border border-zinc-200 bg-white p-5 text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 sm:p-7">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h2 className="text-lg font-semibold">Answer key</h2>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
             Review and adjust reference answers before grading. Paper{" "}
-            <span className="text-cyan-400">{answerKey.paper_id}</span> • Total
-            marks: <span className="text-amber-400">{totalMarks}</span>
+            <span className="text-cyan-600 dark:text-cyan-400">{answerKey.paper_id}</span> • Total
+            marks: <span className="text-amber-600 dark:text-amber-400">{totalMarks}</span>
           </p>
         </div>
 
@@ -222,7 +222,7 @@ export function AnswerKeyEditor({
             type="button"
             onClick={addQuestion}
             disabled={busy}
-            className="border border-slate-700 bg-slate-900 px-3.5 py-2 text-sm font-medium text-slate-200 hover:border-cyan-500 hover:text-cyan-400 disabled:opacity-50"
+            className="border border-zinc-300 bg-zinc-50 px-3.5 py-2 text-sm font-medium text-zinc-800 hover:border-cyan-500 hover:text-cyan-600 disabled:opacity-50 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-200 dark:hover:border-cyan-400 dark:hover:text-cyan-400"
           >
             + Add question
           </button>
@@ -230,7 +230,7 @@ export function AnswerKeyEditor({
             type="button"
             onClick={handleSave}
             disabled={busy}
-            className="border border-cyan-500 bg-cyan-500 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-cyan-400 disabled:opacity-50"
+            className="border border-cyan-500 bg-cyan-500 px-4 py-2 text-sm font-semibold text-zinc-950 hover:bg-cyan-400 disabled:opacity-50"
           >
             {isSaving ? "Saving..." : "Save & approve"}
           </button>
@@ -238,7 +238,7 @@ export function AnswerKeyEditor({
             type="button"
             onClick={handleDeleteKey}
             disabled={busy}
-            className="inline-flex items-center gap-1.5 border border-red-800/80 bg-red-950/40 px-3.5 py-2 text-sm font-medium text-red-300 hover:border-red-500 hover:bg-red-950/70 disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 border border-rose-300 bg-rose-50 px-3.5 py-2 text-sm font-medium text-rose-700 hover:border-rose-500 hover:bg-rose-100 disabled:opacity-50 dark:border-rose-500/30 dark:bg-rose-950/40 dark:text-rose-300 dark:hover:border-rose-500 dark:hover:bg-rose-950/70"
           >
             {isDeleting ? (
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -251,13 +251,13 @@ export function AnswerKeyEditor({
       </div>
 
       {error && (
-        <div className="mt-5 border border-red-800 bg-red-950/40 px-3.5 py-2.5 text-sm text-red-300">
+        <div className="mt-5 border border-rose-300 bg-rose-50 px-3.5 py-2.5 text-sm text-rose-700 dark:border-rose-500/30 dark:bg-rose-950/40 dark:text-rose-300">
           {error}
         </div>
       )}
 
       {savedNotice && (
-        <div className="mt-5 border border-cyan-700 bg-cyan-950/40 px-3.5 py-2.5 text-sm text-cyan-300">
+        <div className="mt-5 border border-cyan-300 bg-cyan-50 px-3.5 py-2.5 text-sm text-cyan-800 dark:border-cyan-500/30 dark:bg-cyan-950/40 dark:text-cyan-300">
           Answer key saved and ready for grading.
         </div>
       )}

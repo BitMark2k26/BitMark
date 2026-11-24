@@ -28,9 +28,9 @@ export function SubmissionList({
     : jobs;
 
   return (
-    <aside className="border border-slate-700 bg-slate-800">
-      <div className="border-b border-slate-700 p-4">
-        <h2 className="text-sm font-semibold text-slate-100">
+    <aside className="border border-zinc-200 bg-white text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100">
+      <div className="border-b border-zinc-200 p-4 dark:border-zinc-800">
+        <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
           Submissions ({jobs.length})
         </h2>
         <div className="mt-3 flex gap-2">
@@ -39,8 +39,8 @@ export function SubmissionList({
             onClick={() => onToggleFlagged(false)}
             className={`flex-1 border px-2.5 py-1.5 text-xs font-medium ${
               !showFlaggedOnly
-                ? "border-cyan-500 bg-cyan-500/15 text-cyan-300"
-                : "border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200"
+                ? "border-cyan-500 bg-cyan-500/15 text-cyan-700 dark:text-cyan-300"
+                : "border-zinc-200 bg-zinc-50 text-zinc-600 hover:text-zinc-900 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-200"
             }`}
           >
             All
@@ -50,8 +50,8 @@ export function SubmissionList({
             onClick={() => onToggleFlagged(true)}
             className={`flex-1 border px-2.5 py-1.5 text-xs font-medium ${
               showFlaggedOnly
-                ? "border-amber-500 bg-amber-500/15 text-amber-300"
-                : "border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200"
+                ? "border-amber-500 bg-amber-500/15 text-amber-800 dark:text-amber-300"
+                : "border-zinc-200 bg-zinc-50 text-zinc-600 hover:text-zinc-900 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-200"
             }`}
           >
             Needs Review ({flaggedCount})
@@ -59,9 +59,9 @@ export function SubmissionList({
         </div>
       </div>
 
-      <div className="divide-y divide-slate-700/80">
+      <div className="divide-y divide-zinc-200/80 dark:divide-zinc-800/80">
         {visibleJobs.length === 0 ? (
-          <div className="p-4 text-xs text-slate-400">
+          <div className="p-4 text-xs text-zinc-500 dark:text-zinc-400">
             No submissions match this filter.
           </div>
         ) : (
@@ -85,41 +85,41 @@ export function SubmissionList({
                 }}
                 className={`flex cursor-pointer items-start justify-between gap-2 p-4 transition-colors ${
                   isSelected
-                    ? "bg-slate-900/90 border-l-2 border-l-cyan-400"
-                    : "hover:bg-slate-900/50"
+                    ? "bg-zinc-100/90 border-l-2 border-l-cyan-500 dark:bg-zinc-950/90 dark:border-l-cyan-400"
+                    : "hover:bg-zinc-50 dark:hover:bg-zinc-950/50"
                 }`}
               >
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
-                    <p className="truncate text-sm font-medium text-slate-100">
+                    <p className="truncate text-sm font-medium text-zinc-900 dark:text-zinc-100">
                       {displayName}
                     </p>
                     {job.injection_attempt_detected && (
                       <ShieldAlert
-                        className="h-3.5 w-3.5 shrink-0 text-red-400"
+                        className="h-3.5 w-3.5 shrink-0 text-rose-600 dark:text-rose-400"
                         aria-label="Prompt injection detected"
                       />
                     )}
                     {job.needs_manual_review && (
                       <AlertTriangle
-                        className="h-3.5 w-3.5 shrink-0 text-amber-400"
+                        className="h-3.5 w-3.5 shrink-0 text-amber-600 dark:text-amber-400"
                         aria-label="Needs manual review"
                       />
                     )}
                   </div>
 
-                  <div className="mt-1 flex items-center gap-2 text-xs text-slate-400">
+                  <div className="mt-1 flex items-center gap-2 text-xs text-zinc-500 dark:text-zinc-400">
                     {job.status === "processing" ? (
-                      <span className="inline-flex items-center gap-1 text-cyan-400">
+                      <span className="inline-flex items-center gap-1 text-cyan-600 dark:text-cyan-400">
                         <Loader2 className="h-3 w-3 animate-spin" />
                         Processing...
                       </span>
                     ) : job.status === "failed" ? (
-                      <span className="text-red-400">Failed</span>
+                      <span className="text-rose-600 dark:text-rose-400">Failed</span>
                     ) : (
                       <span>
                         Score:{" "}
-                        <strong className="text-slate-200">
+                        <strong className="text-zinc-800 dark:text-zinc-200">
                           {job.total_score ?? 0} / {job.max_total_score ?? 0}
                         </strong>
                       </span>
@@ -141,10 +141,10 @@ export function SubmissionList({
                     onDelete(job.job_id);
                   }}
                   aria-label={`Delete submission ${displayName}`}
-                  className="shrink-0 p-1.5 text-slate-400 hover:text-red-400 disabled:opacity-50"
+                  className="shrink-0 p-1.5 text-zinc-400 hover:text-rose-600 disabled:opacity-50 dark:text-zinc-400 dark:hover:text-rose-400"
                 >
                   {isDeleting ? (
-                    <Loader2 className="h-4 w-4 animate-spin text-red-400" />
+                    <Loader2 className="h-4 w-4 animate-spin text-rose-600 dark:text-rose-400" />
                   ) : (
                     <Trash2 className="h-4 w-4" />
                   )}

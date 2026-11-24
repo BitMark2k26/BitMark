@@ -16,7 +16,7 @@ type AnswerKeySummary = {
 };
 
 const inputClassName =
-  "mt-2 w-full border border-slate-700 bg-slate-900 px-3 py-2.5 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 disabled:cursor-not-allowed disabled:opacity-50";
+  "mt-2 w-full border border-zinc-300 bg-zinc-50 px-3 py-2.5 text-sm text-zinc-900 outline-none placeholder:text-zinc-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100 dark:placeholder:text-zinc-500";
 
 export function BatchDetailsForm({
   selectedBatch,
@@ -51,21 +51,21 @@ export function BatchDetailsForm({
   }, []);
 
   return (
-    <div className="border border-slate-700 bg-slate-800 p-5 sm:p-7">
+    <div className="border border-zinc-200 bg-white p-5 text-zinc-900 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-100 sm:p-7">
       <h2 className="text-lg font-semibold">Batch details</h2>
-      <p className="mt-1 text-sm text-slate-400">
+      <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
         Choose an available answer key and the marking scheme to use.
       </p>
 
       {error && (
-        <div className="mt-4 border border-red-800 bg-red-950/40 px-3.5 py-2.5 text-sm text-red-300">
+        <div className="mt-4 border border-rose-300 bg-rose-50 px-3.5 py-2.5 text-sm text-rose-700 dark:border-rose-500/30 dark:bg-rose-950/40 dark:text-rose-300">
           {error}
         </div>
       )}
 
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <label className="block text-sm font-medium sm:col-span-2">
-          Available batch or class <span className="text-amber-400">*</span>
+          Available batch or class <span className="text-amber-600 dark:text-amber-400">*</span>
           <select
             value={selectedBatch}
             onChange={(event) => onBatchChange(event.target.value)}

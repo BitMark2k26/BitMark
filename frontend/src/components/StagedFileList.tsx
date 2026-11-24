@@ -21,21 +21,21 @@ export function StagedFileList({ files, onRemove }: StagedFileListProps) {
 
   return (
     <div className="mt-5 space-y-2">
-      <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate-400">
+      <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
         <span>{files.length} {files.length === 1 ? "file" : "files"} ready</span>
         <span>{formatFileSize(totalSize)} total</span>
       </div>
       {files.map((file) => {
         const Icon = getFileIcon(file.type);
         return (
-          <div key={file.id} className="flex items-center gap-3 border border-slate-700 bg-slate-900/60 px-3 py-3">
-            <Icon className="h-5 w-5 shrink-0 text-cyan-400" />
+          <div key={file.id} className="flex items-center gap-3 border border-zinc-200 bg-zinc-50 px-3 py-3 dark:border-zinc-800 dark:bg-zinc-950/70">
+            <Icon className="h-5 w-5 shrink-0 text-cyan-600 dark:text-cyan-400" />
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-medium">{file.name}</p>
-              <p className="mt-0.5 text-xs text-slate-400">{formatFileSize(file.size)}</p>
+              <p className="truncate text-sm font-medium text-zinc-900 dark:text-zinc-100">{file.name}</p>
+              <p className="mt-0.5 text-xs text-zinc-500 dark:text-zinc-400">{formatFileSize(file.size)}</p>
             </div>
-            <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400" />
-            <button type="button" onClick={() => onRemove(file.id)} aria-label={`Remove ${file.name}`} className="p-1 text-slate-500 transition-colors hover:text-amber-400">
+            <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+            <button type="button" onClick={() => onRemove(file.id)} aria-label={`Remove ${file.name}`} className="p-1 text-zinc-400 transition-colors hover:text-amber-600 dark:text-zinc-500 dark:hover:text-amber-400">
               <Trash2 className="h-4 w-4" />
             </button>
           </div>

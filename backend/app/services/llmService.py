@@ -161,7 +161,6 @@ def _parse_json_to_model(raw_content: str, model_cls: Type[T]) -> T:
 async def generate_and_verify_key(raw_text: Any, paper_id: str) -> AnswerKey:
     clean_paper_id = paper_id.strip()
     text_str = raw_text.text if hasattr(raw_text, "text") else str(raw_text)
-    print("OCR TEXT PREVIEW (KEY):", text_str[:300])
 
     # Pass 1: Draft answer key
     draft_prompt = ChatPromptTemplate.from_messages([
@@ -197,7 +196,6 @@ async def generate_and_verify_key(raw_text: Any, paper_id: str) -> AnswerKey:
     })
     initial_draft = _parse_json_to_model(str(draft_resp.content), AnswerKey)
     initial_draft.paper_id = clean_paper_id
-    print("DRAFT KEY GENERATED FOR:", clean_paper_id)
 
     # Pass 2: Reflection & verification against original exam text
     reflection_prompt = ChatPromptTemplate.from_messages([
@@ -231,7 +229,6 @@ async def generate_and_verify_key(raw_text: Any, paper_id: str) -> AnswerKey:
     })
     verified_key = _parse_json_to_model(str(verified_resp.content), AnswerKey)
     verified_key.paper_id = clean_paper_id
-    print("VERIFIED KEY GENERATED FOR:", clean_paper_id)
     return verified_key
 
 
@@ -245,7 +242,6 @@ async def evaluate_student_paper(
         if hasattr(wrapped_student_text, "text")
         else str(wrapped_student_text)
     )
-    print("OCR TEXT PREVIEW (STUDENT):", wrapped_str[:300])
 
     prompt = ChatPromptTemplate.from_messages([
         (

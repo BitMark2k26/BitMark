@@ -108,35 +108,35 @@ export default function UploadPage() {
   const canContinue = files.length > 0 && selectedBatch.trim().length > 0;
 
   return (
-    <div className="min-h-screen bg-slate-900 px-5 py-8 text-slate-100 sm:px-8 lg:px-12">
+    <div className="min-h-screen bg-zinc-50 px-5 py-8 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
-        <header className="mb-8 flex flex-col gap-4 border-b border-slate-700 pb-7 sm:flex-row sm:items-end sm:justify-between">
+        <header className="mb-8 flex flex-col gap-4 border-b border-zinc-200 pb-7 dark:border-zinc-800 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-400">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-600 dark:text-cyan-400">
               New evaluation
             </p>
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Upload a batch
             </h1>
-            <p className="mt-2 max-w-xl text-sm leading-6 text-slate-400">
+            <p className="mt-2 max-w-xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
               Add student submissions, label each student copy, and select the
               paper ID to begin marking.
             </p>
           </div>
-          <div className="flex items-center gap-2 text-sm text-slate-400">
+          <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
             {pageSteps.map((step, index) => (
               <span key={step} className="flex items-center gap-2">
                 <span
                   className={`flex h-7 w-7 items-center justify-center rounded-full font-semibold ${
                     index === 0
-                      ? "bg-cyan-500/15 text-cyan-400"
-                      : "border border-slate-700"
+                      ? "bg-cyan-500/15 text-cyan-600 dark:text-cyan-400"
+                      : "border border-zinc-300 dark:border-zinc-800"
                   }`}
                 >
                   {step}
                 </span>
                 {index < pageSteps.length - 1 && (
-                  <span className="h-px w-8 bg-slate-700" />
+                  <span className="h-px w-8 bg-zinc-300 dark:bg-zinc-800" />
                 )}
               </span>
             ))}
@@ -144,23 +144,23 @@ export default function UploadPage() {
         </header>
 
         {error && (
-          <div className="mb-6 border border-red-800 bg-red-950/40 px-4 py-3 text-sm text-red-300">
+          <div className="mb-6 border border-rose-300 bg-rose-50 px-4 py-3 text-sm text-rose-700 dark:border-rose-500/30 dark:bg-rose-950/40 dark:text-rose-300">
             {error}
           </div>
         )}
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
           <section className="space-y-6">
-            <div className="border border-slate-700 bg-slate-800 p-5 sm:p-7">
+            <div className="border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900/80 sm:p-7">
               <div className="mb-5 flex items-start justify-between gap-4">
                 <div>
                   <h2 className="text-lg font-semibold">Student submissions</h2>
-                  <p className="mt-1 text-sm text-slate-400">
+                  <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
                     PDF, Word, CSV, or Excel files up to 25 MB each. Set a
                     student copy name for each file.
                   </p>
                 </div>
-                <span className="hidden rounded-full border border-slate-700 px-3 py-1 text-xs text-slate-400 sm:block">
+                <span className="hidden rounded-full border border-zinc-200 px-3 py-1 text-xs text-zinc-500 dark:border-zinc-800 dark:text-zinc-400 sm:block">
                   Required
                 </span>
               </div>
@@ -172,13 +172,13 @@ export default function UploadPage() {
                   {files.map((item) => (
                     <div
                       key={item.id}
-                      className="flex flex-col gap-3 border border-slate-700 bg-slate-900/70 p-3.5 sm:flex-row sm:items-center sm:justify-between"
+                      className="flex flex-col gap-3 border border-zinc-200 bg-zinc-50 p-3.5 dark:border-zinc-800 dark:bg-zinc-950/70 sm:flex-row sm:items-center sm:justify-between"
                     >
                       <div className="min-w-0 flex-1">
-                        <p className="truncate text-sm font-medium text-slate-100">
+                        <p className="truncate text-sm font-medium text-zinc-900 dark:text-zinc-100">
                           {item.name}
                         </p>
-                        <p className="text-xs text-slate-400">
+                        <p className="text-xs text-zinc-500 dark:text-zinc-400">
                           {(item.size / (1024 * 1024)).toFixed(2)} MB
                         </p>
                       </div>
@@ -192,13 +192,13 @@ export default function UploadPage() {
                           }
                           placeholder="Student copy name / roll no."
                           aria-label={`Student copy name for ${item.name}`}
-                          className="w-full border border-slate-700 bg-slate-800 px-3 py-1.5 text-sm text-slate-100 placeholder-slate-500 focus:border-cyan-400 focus:outline-none"
+                          className="w-full border border-zinc-300 bg-white px-3 py-1.5 text-sm text-zinc-900 placeholder-zinc-400 focus:border-cyan-500 focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder-zinc-500 dark:focus:border-cyan-400"
                         />
                         <button
                           type="button"
                           onClick={() => removeFile(item.id)}
                           aria-label={`Remove ${item.name}`}
-                          className="border border-slate-700 bg-slate-800 p-2 text-slate-400 hover:border-red-500 hover:text-red-300"
+                          className="border border-zinc-300 bg-white p-2 text-zinc-500 hover:border-rose-500 hover:text-rose-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:border-rose-500 dark:hover:text-rose-300"
                         >
                           <Trash2 className="h-4 w-4" />
                         </button>
