@@ -3,20 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { UserButton, useUser } from "@clerk/nextjs";
-import {
-  LayoutDashboard,
-  Upload,
-  List,
-  FileText,
-  History,
-  LucideIcon
-} from "lucide-react";
 import { useState } from "react";
 
 type NavItem = {
   name: string;
   href: string;
-  icon: LucideIcon;
 };
 
 export function Sidebar() {
@@ -25,11 +16,11 @@ export function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const navItems: NavItem[] = [
-    { name: "Dashboard", href: "/", icon: LayoutDashboard },
-    { name: "Upload Batch", href: "/upload", icon: Upload },
-    { name: "Review Queue", href: "/review", icon: List },
-    { name: "Marking Scheme", href: "/scheme", icon: FileText },
-    { name: "History", href: "/history", icon: History },
+    { name: "Dashboard", href: "/" },
+    { name: "Upload Batch", href: "/upload" },
+    { name: "Review Queue", href: "/review" },
+    { name: "Marking Scheme", href: "/answerKey" },
+    { name: "Generate Marking Scheme", href: "/generateKey" },
   ];
 
   const toggleSidebar = () => {
@@ -62,7 +53,6 @@ export function Sidebar() {
       <nav className="flex-1 overflow-y-auto overflow-x-hidden py-6 px-3 space-y-2">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
-          const Icon = item.icon;
 
           return (
             <Link
@@ -75,7 +65,7 @@ export function Sidebar() {
                 ${isActive ? "bg-slate-800 text-cyan-400" : "text-slate-400 hover:bg-slate-800 hover:text-slate-100"}
               `}
             >
-              <Icon className={`h-5 w-5 shrink-0 ${isActive ? "text-cyan-400" : "text-slate-400 group-hover:text-slate-100"}`} />
+              
               
               {!isCollapsed && (
                 <span className="font-medium text-sm ml-3 whitespace-nowrap">{item.name}</span>

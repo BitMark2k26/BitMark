@@ -6,7 +6,7 @@ const DashboardPage = async () => {
   const { userId } = await auth.protect();
   
   return (
-    <div className="flex min-h-screen bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen bg-slate-900 font-sans ">
       <Sidebar />
       <main className="flex flex-col flex-1 items-center justify-center w-full">
         <Dashboard />

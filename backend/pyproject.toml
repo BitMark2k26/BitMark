@@ -6,6 +6,20 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "fastapi>=0.141.1",
+    "google-genai>=3.6.1",
     "ipykernel>=7.3.0",
+    "langchain-core>=1.8.4",
+    "langchain-groq>=1.2.1",
+    "numpy>=2.5.5",
+    "opencv-python-headless>=5.1.0.95",
+    "pdf2image>=1.17.0",
+    "pillow>=13.0.0",
+    "pydantic>=2.13.4",
+    "pydantic-settings>=2.16.3",
+    "pymongo>=4.20.1",
+    "pymupdf>=2.1",
+    "pytesseract>=0.3.13",
+    "python-dotenv>=1.2.4",
+    "python-multipart>=0.0.34",
     "uvicorn>=0.52.4",
 ]

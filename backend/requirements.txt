@@ -1,2 +1,16 @@
 fastapi
 uvicorn
+pydantic-settings
+pymongo
+python-multipart 
+pytesseract 
+Pillow
+langchain-groq 
+langchain-core
+pydantic
+opencv-python-headless
+numpy
+pdf2image
+python-dotenv
+google-genai
+pymupdf

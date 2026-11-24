@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.api.server import router 
 import os
 app = FastAPI(title="PageIndex Vectorless RAG")
 app.add_middleware(
@@ -11,6 +12,4 @@ app.add_middleware(
 )
 
 
-@app.get("/")
-def health_check():
-    return {"status": "ok", "message": "Vectorless RAG Backend is running!"}
+app.include_router(router,prefix="/api")
