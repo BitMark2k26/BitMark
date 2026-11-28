@@ -96,7 +96,7 @@ export default function UploadPage() {
       );
 
       router.push(
-        `/review?paperId=${encodeURIComponent(cleanBatch)}&jobs=${jobIds.join(",")}`
+        `/review`
       );
     } catch (err) {
       setError(err instanceof Error ? err.message : "Upload failed.");
